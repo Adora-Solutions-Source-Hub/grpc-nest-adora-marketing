@@ -5,8 +5,12 @@ import * as crypto from 'crypto';
 import * as moment from 'moment';
 import { extname } from 'path';
 import * as dotenv from 'dotenv';
+import * as _ from 'lodash';
 
 dotenv.config({ path: `${process.cwd()}/.env` });
+
+export const convertCamel = (data) => _.mapKeys(data, (value, key) => _.camelCase(key));
+export const convertSnake = (data) => _.mapKeys(data, (value, key) => _.snakeCase(key));
 
 export const capitalize = ([first, ...rest]: string, lowerRest = false) =>
   first.toUpperCase() +

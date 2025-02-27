@@ -23,9 +23,7 @@ export interface CreateResearchMetadataResponse {
 
 /** Brief */
 export interface CreateBriefRequest {
-  id: number;
-  name: string;
-  field: string;
+  businessDomain: string;
   website: string;
   productName: string;
   marketLocation: string;
@@ -34,7 +32,13 @@ export interface CreateBriefRequest {
   brandName: string;
   campaignStart: string;
   campaignEnd: string;
+  budget: string;
   targetAudience: string[];
+  competitors: string[];
+  differentiation: string[];
+  pastCampaign: string[];
+  additionalRequirements: string[];
+  socialMediaLink: string;
 }
 
 export interface CreateBriefResponse {
@@ -43,14 +47,10 @@ export interface CreateBriefResponse {
   brief: CreateBriefRequest | undefined;
 }
 
-/** Campaign */
 export interface CreateCampaignRequest {
-  id: number;
   name: string;
   userId: number;
-  assignment: string[];
-  briefId: number;
-  researchMetadataId: number;
+  brief: CreateBriefRequest | undefined;
 }
 
 export interface CreateCampaignResponse {
