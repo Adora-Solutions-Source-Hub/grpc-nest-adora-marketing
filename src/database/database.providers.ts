@@ -2,6 +2,7 @@
 import 'dotenv/config';
 import { Sequelize } from 'sequelize-typescript';
 import { Campaign } from 'src/modules/campaign/campaign.entity';
+import { ResearchMetadata } from 'src/modules/research_metadata/research_metadata.entity';
 
 // import * as mongoose from 'mongoose';
 // import { MONGODB } from 'utils';
@@ -27,7 +28,7 @@ export const databaseProviders = [
         //   timestamps: false
         // }
       });
-      sequelize.addModels([Campaign]);
+      sequelize.addModels([Campaign, ResearchMetadata]);
       await sequelize.sync();
       return sequelize;
     }
